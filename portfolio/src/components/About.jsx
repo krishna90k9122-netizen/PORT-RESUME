@@ -65,12 +65,12 @@ const About = () => {
             </div>
 
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">
-              I am a Computer Science Engineering student with a strong interest in modern web development. 
+              I am a Computer Science Engineering student with a strong interested in modern web development. 
               I enjoy creating beautiful user interfaces and powerful backend applications.
             </p>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               My goal is to become an industry-ready Full Stack Developer and solve real-world problems 
-              using technology. I'm currently working on the MERN stack and building production-quality applications.
+              using technology. I am currently working on the MERN stack and building production-quality applications.
             </p>
           </div>
         </motion.div>
