@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna Gupta - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #4a5568;
+            --border: #e2e8f0;
+            --text-dark: #111827;
+            --text-muted: #4b5563;
+            --link-color: #2563eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: var(--text-dark);
+            line-height: 1.5;
+            padding: 40px 20px;
+        }
+
+        /* Printable Page Layout */
+        .resume-page {
+            background-color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 60px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        /* Floating action buttons for web preview */
+        .actions-bar {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .btn-back:hover {
+            color: var(--text-dark);
+        }
+
+        .btn-print {
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-print:hover {
+            background-color: #333;
+        }
+
+        /* Resume Content styling */
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 18px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .contact-info a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: var(--link-color);
+            text-decoration: underline;
+        }
+
+        .contact-info i {
+            margin-right: 4px;
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 4px;
+            margin: 22px 0 12px 0;
+        }
+
+        .summary-text {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .item-meta {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .item-subtitle {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 6px;
+            font-size: 0.92rem;
+            color: var(--text-dark);
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-cols: 1fr;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .skills-category {
+            margin-bottom: 4px;
+        }
+
+        .skills-category strong {
+            font-weight: 600;
+        }
+
+        .additional-grid {
+            display: grid;
+            grid-template-cols: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* Print Media Queries */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+                color: #000;
+            }
+
+            .resume-page {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .actions-bar {
+                display: none;
+            }
+
+            @page {
+                size: A4;
+                margin: 20mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="actions-bar">
+        <a href="index.html" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <button class="btn-print" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> Print / Save PDF
+        </button>
+    </div>
+
+    <div class="resume-page">
+        <header>
+            <h1>Krishna Gupta</h1>
+            <div class="contact-info">
+                <a href="mailto:krishna90k2006@gmail.com"><i class="fa-regular fa-envelope"></i> krishna90k2006@gmail.com</a>
+                <a href="tel:+919122957274"><i class="fa-solid fa-phone"></i> +91 9122957274</a>
+                <a href="https://linkedin.com/in/krishna-gupta-b00779324" target="_blank"><i class="fa-brands fa-linkedin-in"></i> linkedin.com/in/krishna-gupta-b00779324</a>
+                <a href="https://github.com/krishna90k9122-netizen" target="_blank"><i class="fa-brands fa-github"></i> github.com/krishna90k9122-netizen</a>
+            </div>
+        </header>
+
+        <section>
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary-text">
+                B.Tech Computer Science Engineering student with a strong interest in Full Stack Web Development. 
+                Experienced in frontend development, hackathons, and student leadership roles. Documentation Officer leader at 
+                E-Cell club, responsible for preparing event reports, proposals, and maintaining official records.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="item-header">
+                    <span class="item-title">Bachelor of Technology (B.Tech) in Computer Science & Engineering</span>
+                    <span class="item-meta">2024 – 2028 (2nd Year, Present)</span>
+                </div>
+                <div class="item-subtitle">Netaji Subhas University, Jamshedpur</div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">Frontend Developer (Projects & Practice)</span>
+                </div>
+                <ul>
+                    <li>Built responsive web pages using HTML, CSS, and JavaScript.</li>
+                    <li>Focused on clean UI, structured layouts, and user-friendly design.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Leadership</h2>
+            
+            <div class="leadership-item" style="margin-bottom: 12px;">
+                <div class="item-header">
+                    <span class="item-title">Campus Ambassador – IIT Roorkee</span>
+                </div>
+                <ul>
+                    <li>Promoted initiatives, events, and programs while coordinating student participation.</li>
+                </ul>
+            </div>
+
+            <div class="leadership-item">
+                <div class="item-header">
+                    <span class="item-title">E-Cell Associate (Documentation) – IIT Bombay</span>
+                </div>
+                <ul>
+                    <li>Prepared event reports and official records for entrepreneurship programs.</li>
+                    <li>National Entrepreneurship Challenge (NEC) 2025 – Rank 187 (E-Cell IIT Bombay)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skills-category">
+                    <strong>Languages:</strong> C, C++, HTML, CSS, JavaScript
+                </div>
+                <div class="skills-category">
+                    <strong>Tools:</strong> Git, GitHub
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Hackathons & Achievements</h2>
+            <ul>
+                <li><strong>HackNation – Nirman Hackathon (Participant)</strong>, Silicon University, Odisha</li>
+                <li><strong>Hack4Delhi – Final Round Shortlisted</strong> (IEEE NSUT Delhi)</li>
+                <li><strong>AI for Bharat Hackathon</strong> – Participant</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Additional</h2>
+            <div class="additional-grid">
+                <div>
+                    <strong>Interests & Soft Skills:</strong>
+                    <ul>
+                        <li>Full Stack Development & UI Design</li>
+                        <li>Team collaboration and communication</li>
+                        <li>Problem-solving, adaptability, and time management</li>
+                        <li>Continuous learning mindset</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
